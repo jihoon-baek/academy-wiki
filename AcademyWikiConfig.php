@@ -56,6 +56,28 @@ $wgHooks['AuthChangeFormFields'][] = function ( $requests, $fieldInfo, &$formDes
 	}
 };
 
+// --- 옵시디언/마크다운 문법 지원 (PHP 정규식 훅) ---
+$wgHooks['ParserBeforeInternalParse'][] = function( &$parser, &$text, &$stripState ) {
+    // 1. 헤드라인 (# ~ ######)
+    $text = preg_replace('/^###### (.*?)$/m', '====== $1 ======', $text);
+    $text = preg_replace('/^##### (.*?)$/m', '===== $1 =====', $text);
+    $text = preg_replace('/^#### (.*?)$/m', '==== $1 ====', $text);
+    $text = preg_replace('/^### (.*?)$/m', '=== $1 ===', $text);
+    $text = preg_replace('/^## (.*?)$/m', '== $1 ==', $text);
+    $text = preg_replace('/^# (.*?)$/m', '= $1 =', $text);
+
+    // 2. 리스트 (- 항목)
+    $text = preg_replace('/^(\s*)- (.*?)$/m', '$1* $2', $text);
+
+    // 3. 인용문 (> 항목)
+    $text = preg_replace('/^> (.*?)$/m', '<blockquote>$1</blockquote>', $text);
+
+    // 4. 일반 마크다운 링크 [텍스트](URL) -> 미디어위키 [URL 텍스트]
+    $text = preg_replace('/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/', '[$2 $1]', $text);
+
+    return true;
+};
+
 // ---------------------------------------------------------
 // 2. Vector 2022 및 미디어위키 기본 설정
 // ---------------------------------------------------------
