@@ -135,17 +135,25 @@ document.addEventListener('DOMContentLoaded', function() {
             mw.cookie.set('vector-main-menu-pinned', '0');
         });
 
+        // --- TOC를 본문 컨테이너로 이동하고 사이드바 고정 해제 ---
+        var tocUnpinBtn = document.querySelector('.vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-toc.unpin"]');
+        if (tocUnpinBtn) { tocUnpinBtn.click(); }
+        
+        mw.loader.using('mediawiki.cookie').then(function() {
+            mw.cookie.set('vector-toc-pinned', '0');
+        });
+
+        var toc = document.getElementById('vector-toc');
+        var contentArea = document.querySelector('.mw-parser-output');
+        if (toc && contentArea) {
+            contentArea.insertBefore(toc, contentArea.firstChild);
+        }
+
         // --- 게시글 우측 도구들을 하단으로 이동 ---
-        var pageTools = document.querySelector('.vector-page-tools-landmark');
-        var catLinks = document.getElementById('catlinks');
-        var contentBottom = document.querySelector('.mw-content-container');
-        if (pageTools && contentBottom) {
-            // 이미 하단에 있는게 아니면 하단으로 이동
-            contentBottom.appendChild(pageTools);
-            pageTools.style.marginTop = '40px';
-            pageTools.style.borderTop = '1px solid var(--border-color)';
-            pageTools.style.paddingTop = '20px';
-            pageTools.style.display = 'block'; // 강제로 보이게 함
+        var pageTools = document.getElementById('vector-page-tools');
+        var contentContainer = document.querySelector('.mw-content-container');
+        if (pageTools && contentContainer) {
+            contentContainer.appendChild(pageTools);
         }
     }, 150);
 });
@@ -338,11 +346,11 @@ html.skin-theme-clientpref-night .vector-user-menu-login, html.skin-theme-client
 
 /* --- 3. Sidebar (Left / Right panels) --- */
 .vector-column-start, .vector-column-end {
-    background: transparent !important;
+    display: none !important;
 }
-/* Hide default annoying borders */
+/* Force single column layout */
 .mw-page-container-inner {
-    grid-template-columns: minmax(0, 1fr) !important; /* Hide left sidebar by default on some pages if needed, but Vector 2022 toggles it anyway */
+    grid-template-columns: 1fr !important;
 }
 
 /* --- 4. Typography & Links --- */
@@ -526,19 +534,18 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
     display: none !important;
 }
 
-/* Hide the top right Page Tools dropdown */
+/* Hide the top right Page Tools dropdown toggle */
 #vector-page-tools-dropdown, .vector-page-tools-landmark .vector-dropdown {
     display: none !important;
 }
 
-/* Hide the Right Sidebar column entirely */
-.vector-column-end {
-    display: none !important;
-}
-
 /* Bottom Page Tools Styling */
-.vector-page-tools-landmark {
-    display: block !important;
+#vector-page-tools .vector-pinnable-header { 
+    display: none !important; 
+}
+#vector-page-tools {
+    display: flex !important;
+    flex-wrap: wrap !important;
     width: 100% !important;
     background: var(--bg-page) !important;
     border: 1px solid var(--border-color) !important;
@@ -546,31 +553,27 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
     padding: 20px !important;
     box-sizing: border-box !important;
     margin-top: 40px !important;
-}
-.vector-page-tools-landmark .vector-pinned-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
     gap: 30px !important;
 }
-.vector-page-tools-landmark .vector-menu {
+#vector-page-tools .vector-menu {
     border: none !important;
     margin: 0 !important;
     padding: 0 !important;
 }
-.vector-page-tools-landmark .vector-menu-heading {
+#vector-page-tools .vector-menu-heading {
     font-weight: 800 !important;
     color: var(--text-main) !important;
     margin-bottom: 10px !important;
     display: block !important;
 }
-.vector-page-tools-landmark .vector-menu-content-list {
+#vector-page-tools .vector-menu-content-list {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 15px !important;
     list-style: none !important;
     padding: 0 !important;
 }
-.vector-page-tools-landmark .vector-menu-content-list li {
+#vector-page-tools .vector-menu-content-list li {
     font-size: 0.9em !important;
 }
 CSS;
