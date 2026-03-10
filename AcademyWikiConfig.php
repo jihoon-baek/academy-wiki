@@ -134,7 +134,20 @@ document.addEventListener('DOMContentLoaded', function() {
         mw.loader.using('mediawiki.cookie').then(function() {
             mw.cookie.set('vector-main-menu-pinned', '0');
         });
-    }, 50);
+
+        // --- 게시글 우측 도구들을 하단으로 이동 ---
+        var pageTools = document.querySelector('.vector-page-tools-landmark');
+        var catLinks = document.getElementById('catlinks');
+        var contentBottom = document.querySelector('.mw-content-container');
+        if (pageTools && contentBottom) {
+            // 이미 하단에 있는게 아니면 하단으로 이동
+            contentBottom.appendChild(pageTools);
+            pageTools.style.marginTop = '40px';
+            pageTools.style.borderTop = '1px solid var(--border-color)';
+            pageTools.style.paddingTop = '20px';
+            pageTools.style.display = 'block'; // 강제로 보이게 함
+        }
+    }, 150);
 });
 JS;
 
@@ -496,12 +509,69 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
 
 /* --- 11. Main Menu Pinning Disable --- */
 /* Hide the "Move to sidebar" (pin/unpin) button for the main menu */
-.vector-pinnable-header-pin-button[data-event-name="pinnable-header.vector-main-menu.pin"],
 .vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-main-menu.unpin"] {
     visibility: hidden !important;
     position: absolute !important;
     opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* --- 12. Appearance & Sidebar Tools Refactor --- */
+/* Hide the entire 'Appearance' (보이기/숨기기) menu */
+.vector-appearance-landmark, 
+#vector-appearance-dropdown,
+.vector-dropdown[title*="모습을 변경합니다"],
+#vector-appearance-unpinned-container,
+#p-appearance {
+    display: none !important;
+}
+
+/* Hide the top right Page Tools dropdown */
+#vector-page-tools-dropdown, .vector-page-tools-landmark .vector-dropdown {
+    display: none !important;
+}
+
+/* Hide the Right Sidebar column entirely */
+.vector-column-end {
+    display: none !important;
+}
+
+/* Bottom Page Tools Styling */
+.vector-page-tools-landmark {
+    display: block !important;
+    width: 100% !important;
+    background: var(--bg-page) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    margin-top: 40px !important;
+}
+.vector-page-tools-landmark .vector-pinned-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+}
+.vector-page-tools-landmark .vector-menu {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.vector-page-tools-landmark .vector-menu-heading {
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+.vector-page-tools-landmark .vector-menu-content-list {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    list-style: none !important;
+    padding: 0 !important;
+}
+.vector-page-tools-landmark .vector-menu-content-list li {
+    font-size: 0.9em !important;
 }
 CSS;
 
