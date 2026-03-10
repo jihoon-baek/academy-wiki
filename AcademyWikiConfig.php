@@ -106,6 +106,14 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('mw-theme', theme); 
         } catch(e) {}
     }
+    
+    // Force unpin main menu if it's currently pinned, so it stays as a hamburger menu
+    setTimeout(function() {
+        var unpinBtn = document.querySelector('.vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-main-menu.unpin"]');
+        if (unpinBtn && unpinBtn.offsetParent !== null) {
+            unpinBtn.click();
+        }
+    }, 100);
 });
 JS;
 
@@ -460,12 +468,18 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
     padding: 0 !important;
 }
 .mw-logo-wordmark {
-    height: 38px !important;
-    max-height: 38px !important;
+    height: 30px !important;
+    max-height: 30px !important;
     width: auto !important;
 }
-CSS;
 
+/* --- 11. Main Menu Pinning Disable --- */
+/* Hide the "Move to sidebar" (pin/unpin) button for the main menu */
+.vector-pinnable-header-pin-button[data-event-name="pinnable-header.vector-main-menu.pin"],
+.vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-main-menu.unpin"] {
+    display: none !important;
+}
+CSS;
 
     $out->addInlineScript( $js );
     $out->addInlineStyle( $css );
