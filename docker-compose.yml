@@ -5,6 +5,17 @@
 # docker-compose.override.yml. For help with doing that, please see
 # DEVELOPERS.md
 services:
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'academy_wiki'
+      MYSQL_USER: 'wikiuser'
+      MYSQL_PASSWORD: 'wikipass'
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+    volumes:
+      - ./db_data:/var/lib/mysql
+
   mediawiki:
     image: docker-registry.wikimedia.org/dev/bookworm-php83-fpm:1.0.0
     user: "${MW_DOCKER_UID}:${MW_DOCKER_GID}"
@@ -17,8 +28,11 @@ services:
       MW_SERVER: 'http://localhost:${MW_DOCKER_PORT:-8080}'
       MW_DOCKER_PORT: "${MW_DOCKER_PORT:-8080}"
       MW_SCRIPT_PATH: ''
-      MW_DBPATH: '/var/www/html/cache/sqlite'
-      MW_DBTYPE: 'sqlite'
+      MW_DBTYPE: 'mysql'
+      MW_DBHOST: 'db'
+      MW_DBNAME: 'academy_wiki'
+      MW_DBUSER: 'wikiuser'
+      MW_DBPASS: 'wikipass'
       MW_LANG: 'en'
       MW_USER: '${MEDIAWIKI_USER:-Admin}'
       MW_PASS: '${MEDIAWIKI_PASSWORD:-dockerpass}'
@@ -27,6 +41,8 @@ services:
       XDEBUG_CONFIG: '${XDEBUG_CONFIG}'
       XDEBUG_ENABLE: '${XDEBUG_ENABLE:-true}'
       XHPROF_ENABLE: '${XHPROF_ENABLE:-true}'
+    depends_on:
+      - db
 
   mediawiki-web:
     image: docker-registry.wikimedia.org/dev/bookworm-apache2:1.0.1
