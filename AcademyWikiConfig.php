@@ -100,20 +100,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function applyTheme(theme) {
         document.documentElement.classList.remove('skin-theme-clientpref-os', 'skin-theme-clientpref-day', 'skin-theme-clientpref-night');
-        document.documentElement.classList.add('skin-theme-clientpref-' + theme);
-        try { 
-            localStorage.setItem('skin-theme-prefs', theme); 
-            localStorage.setItem('mw-theme', theme); 
-        } catch(e) {}
     }
-    
-    // Force unpin main menu if it's currently pinned, so it stays as a hamburger menu
+
+    // Forcefully unpin the main menu for existing stuck sessions
     setTimeout(function() {
         var unpinBtn = document.querySelector('.vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-main-menu.unpin"]');
-        if (unpinBtn && unpinBtn.offsetParent !== null) {
+        if (unpinBtn) {
             unpinBtn.click();
         }
-    }, 100);
+        // Also clear native cookies/options
+        mw.loader.using('mediawiki.cookie').then(function() {
+            mw.cookie.set('vector-main-menu-pinned', '0');
+        });
+    }, 50);
 });
 JS;
 
@@ -477,7 +476,10 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
 /* Hide the "Move to sidebar" (pin/unpin) button for the main menu */
 .vector-pinnable-header-pin-button[data-event-name="pinnable-header.vector-main-menu.pin"],
 .vector-pinnable-header-unpin-button[data-event-name="pinnable-header.vector-main-menu.unpin"] {
-    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 CSS;
 
