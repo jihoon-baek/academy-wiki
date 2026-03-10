@@ -449,6 +449,21 @@ html.skin-theme-clientpref-night .mw-parser-output blockquote {
 .mw-editsection a {
     color: var(--text-muted) !important;
 }
+
+/* --- 10. Logo Adjustments --- */
+/* Hide the square icon and show only the full "wordmark" logo */
+.mw-logo-icon {
+    display: none !important;
+}
+.mw-logo-container {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mw-logo-wordmark {
+    height: 38px !important;
+    max-height: 38px !important;
+    width: auto !important;
+}
 CSS;
 
 
