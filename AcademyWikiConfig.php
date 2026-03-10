@@ -177,7 +177,105 @@ JS;
 html.skin-theme-clientpref-night body {
     background-color: #121212 !important;
 }
+
+/* === Namuwiki / Obsidian Inspired Custom Theme === */
+
+/* Typography */
+body {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif !important;
+}
+
+/* Light Mode Variables - Namuwiki Style */
+:root, html.skin-theme-clientpref-day {
+    --background-color-base: #ffffff;
+    --background-color-page: #f5f6f7;
+    --color-base: #1f2023;
+    --color-link: #0275d8;
+    --border-color-base: #cccccc;
+    
+    --namu-header-bg: #00A495;
+    --namu-header-color: #ffffff;
+    --namu-header-border: #008275;
+}
+
+/* Dark Mode Variables - Namuwiki/Obsidian Style */
+html.skin-theme-clientpref-night {
+    --background-color-base: #1c1d1f;
+    --background-color-page: #101010;
+    --color-base: #e0e0e0;
+    --color-link: #A882FF; /* Obsidian Purple for dark mode links */
+    --border-color-base: #333333;
+    
+    --namu-header-bg: #1c1d1f;
+    --namu-header-color: #ffffff;
+    --namu-header-border: #2c2c2c;
+}
+
+/* Page Background */
+body, html {
+    background-color: var(--background-color-page) !important;
+}
+
+/* Header Styling (Namuwiki top bar) */
+.vector-header-container {
+    background-color: var(--namu-header-bg) !important;
+    border-bottom: 1px solid var(--namu-header-border) !important;
+}
+.vector-header-container, 
+.vector-header-container * {
+    color: var(--namu-header-color) !important;
+}
+
+/* Search Box in Header */
+.vector-search-box-input {
+    background-color: rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    color: var(--namu-header-color) !important;
+}
+.vector-search-box-input::placeholder {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+/* Content Container (Card styling) */
+.mw-page-container {
+    background-color: var(--background-color-page) !important;
+}
+.mw-content-container {
+    background-color: var(--background-color-base) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color-base);
+    border-radius: 10px;
+    padding: 2.5em;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+/* Link overrides */
+a {
+    color: var(--color-link);
+}
+
+/* Headings (Namuwiki style) */
+.mw-parser-output h1,
+.mw-parser-output h2,
+.mw-parser-output h3,
+.mw-parser-output h4 {
+    border-bottom: 1px solid var(--border-color-base) !important;
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+/* Table of Contents */
+.toc, .vector-toc {
+    background-color: var(--background-color-base) !important;
+    border: 1px solid var(--border-color-base) !important;
+    border-radius: 6px;
+    padding: 15px;
+}
 CSS;
+
 
     $out->addInlineScript( $js );
     $out->addInlineStyle( $css );

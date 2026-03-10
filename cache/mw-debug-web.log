@@ -4336,3 +4336,548 @@ FastCGI request finished
 [rdbms] LBFactory shutdown completed
 Request ended normally
 [session] Saving all sessions on shutdown
+
+
+Start request GET /wiki/%EB%8C%80%EB%AC%B8
+IP: 192.168.65.1
+HTTP HEADERS:
+IF-MODIFIED-SINCE: Tue, 10 Mar 2026 13:10:32 GMT
+COOKIE: wordpress_logged_in_70490311fe7c84acda8886406a6d884b=charmclinic%7C1774271445%7CDztgna0VECOzBThUx6z7OMQyUH7kz47UYz0bjJrxFFa%7C482277b971f887acfaf1689f53454713ff897014cbf022a71f06c70661e12833; wp-settings-time-1=1773064889
+ACCEPT-LANGUAGE: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+ACCEPT-ENCODING: gzip, deflate, br, zstd
+REFERER: http://localhost:8080/wiki/%ED%8A%B9%EC%88%98:%EB%B2%84%EC%A0%84
+SEC-FETCH-DEST: document
+SEC-FETCH-USER: ?1
+SEC-FETCH-MODE: navigate
+SEC-FETCH-SITE: same-origin
+ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+USER-AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+UPGRADE-INSECURE-REQUESTS: 1
+SEC-CH-UA-PLATFORM: "macOS"
+SEC-CH-UA-MOBILE: ?0
+SEC-CH-UA: "Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"
+CACHE-CONTROL: max-age=0
+CONNECTION: keep-alive
+HOST: localhost:8080
+(end headers)
+[session] SessionManager using store SqlBagOStuff
+[localisation] LocalisationCache using store LCStoreStaticArray
+[localisation] LocalisationCache::loadCoreData: got localisation for ko from source
+[objectcache] MainWANObjectCache using store Wikimedia\ObjectCache\EmptyBagOStuff
+[session] SessionBackend "4ov07lh23eqrm263vdn4jh9vkt0g3lu5" is unsaved, marking dirty in constructor
+[session] SessionBackend "4ov07lh23eqrm263vdn4jh9vkt0g3lu5" save: dataDirty=1 metaDirty=1 forcePersist=0
+[cookie] already deleted setcookie: "academy_wiki_session", "", "1741612599", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiUserID", "", "1741612599", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiToken", "", "1741612599", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "forceHTTPS", "", "1741612599", "/", "", "", "1", ""
+[session] SessionBackend "4ov07lh23eqrm263vdn4jh9vkt0g3lu5" data dirty due to dirty(): MediaWiki\Session\SessionManager->getSessionForRequest/MediaWiki\Session\SessionManager->getInitialSession/MediaWiki\Session\Session->getToken/MediaWiki\Session\Session->set/MediaWiki\Session\SessionBackend->dirty
+[session] SessionBackend "4ov07lh23eqrm263vdn4jh9vkt0g3lu5" save: dataDirty=1 metaDirty=0 forcePersist=0
+[MessageCache] MessageCache using store SqlBagOStuff
+MediaWiki\Parser\ParserFactory: using default preprocessor
+[SQLBagOStuff] MicroStash using store SqlBagOStuff
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::open [0.114ms] db: SET group_concat_max_len = 262144, `sql_mode` = 'STRICT_ALL_TABLES,ONLY_FULL_GROUP_BY'
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reallyOpenConnection: opened new connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::serverIsReadOnly [0.23ms] db: SELECT @@GLOBAL.read_only AS Value
+[objectcache] fetchOrRegenerate(global:rdbms-server-readonly:db): miss, new value computed
+[rdbms] Wikimedia\Rdbms\Database::beginIfImplied (WikiPage::pageData) [0.043ms] db: BEGIN
+[rdbms] WikiPage::pageData [0.192ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_random,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 0 AND page_title = 'ëŒ€ë¬¸'  LIMIT 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::fetchRevisionRowFromConds [0.177ms] db: SELECT  rev_id,rev_page,rev_timestamp,rev_minor_edit,rev_deleted,rev_len,rev_parent_id,rev_sha1,actor_rev_user.actor_user AS `rev_user`,actor_rev_user.actor_name AS `rev_user_text`,rev_actor,comment_rev_comment.comment_text AS `rev_comment_text`,comment_rev_comment.comment_data AS `rev_comment_data`,comment_rev_comment.comment_id AS `rev_comment_cid`,page_namespace,page_title,page_id,page_latest,page_is_redirect,page_len,user_name  FROM `revision` JOIN `actor` `actor_rev_user` ON ((actor_rev_user.actor_id = rev_actor)) JOIN `comment` `comment_rev_comment` ON ((comment_rev_comment.comment_id = rev_comment_id)) JOIN `page` ON ((page_id = rev_page)) LEFT JOIN `user` ON ((actor_rev_user.actor_user != 0) AND (user_id = actor_rev_user.actor_user))   WHERE rev_id = 1  LIMIT 1  
+[objectcache] fetchOrRegenerate(global:revision-row-1.29:academy_wiki:1:1): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::loadSlotRecordsFromDb [0.125ms] db: SELECT  slot_revision_id,slot_content_id,slot_origin,slot_role_id,content_size,content_sha1,content_address,content_model  FROM `slots` JOIN `content` ON ((slot_content_id = content_id))   WHERE slot_revision_id = 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.058ms] db: SELECT  role_id AS `id`,role_name AS `name`  FROM `slot_roles`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:slot_roles:academy_wiki): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.045ms] db: SELECT  model_id AS `id`,model_name AS `name`  FROM `content_models`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:content_models:academy_wiki): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:page-content-model:1): miss, new value computed
+[ContentHandler] Registered handler for wikitext: MediaWiki\Content\WikitextContentHandler
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+MediaWiki\Output\OutputPage::checkLastModified: client sent If-Modified-Since: 2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::checkLastModified: effective Last-Modified: 2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::checkLastModified: NOT MODIFIED, page=2026-03-10T11:49:49Z, user=1970-01-01T00:00:01Z, epoch=2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::sendCacheControl: private caching (config); Tue, 10 Mar 2026 13:10:32 GMT **
+ViewAction::show: done 304
+[rdbms] MediaWiki\MediaWikiEntryPoint::commitMainTransaction [0.096ms] db: COMMIT
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: primary transaction round committed
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: pre-send deferred updates completed
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: session changes committed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::getAnyOpenConnection: found 'round' connection to #0.
+[rdbms] Cannot use ChronologyProtector with EmptyBagOStuff
+[rdbms] Wikimedia\Rdbms\LBFactory::shutdown: finished ChronologyProtector shutdown
+[rdbms] LBFactory shutdown completed
+Output buffer flushed
+FastCGI request finished
+[rdbms] LBFactory shutdown completed
+Request ended normally
+[session] Saving all sessions on shutdown
+
+
+Start request GET /wiki/%EB%8C%80%EB%AC%B8
+IP: 192.168.65.1
+HTTP HEADERS:
+IF-MODIFIED-SINCE: Tue, 10 Mar 2026 13:10:32 GMT
+COOKIE: wordpress_logged_in_70490311fe7c84acda8886406a6d884b=charmclinic%7C1774271445%7CDztgna0VECOzBThUx6z7OMQyUH7kz47UYz0bjJrxFFa%7C482277b971f887acfaf1689f53454713ff897014cbf022a71f06c70661e12833; wp-settings-time-1=1773064889
+ACCEPT-LANGUAGE: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+ACCEPT-ENCODING: gzip, deflate, br, zstd
+REFERER: http://localhost:8080/wiki/%ED%8A%B9%EC%88%98:%EB%B2%84%EC%A0%84
+SEC-FETCH-DEST: document
+SEC-FETCH-USER: ?1
+SEC-FETCH-MODE: navigate
+SEC-FETCH-SITE: same-origin
+ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+USER-AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+UPGRADE-INSECURE-REQUESTS: 1
+SEC-CH-UA-PLATFORM: "macOS"
+SEC-CH-UA-MOBILE: ?0
+SEC-CH-UA: "Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"
+CACHE-CONTROL: max-age=0
+CONNECTION: keep-alive
+HOST: localhost:8080
+(end headers)
+[session] SessionManager using store SqlBagOStuff
+[localisation] LocalisationCache using store LCStoreStaticArray
+[localisation] LocalisationCache::loadCoreData: got localisation for ko from source
+[objectcache] MainWANObjectCache using store Wikimedia\ObjectCache\EmptyBagOStuff
+[session] SessionBackend "k27vmue5p2eo33j3h147s0peevvkbid0" is unsaved, marking dirty in constructor
+[session] SessionBackend "k27vmue5p2eo33j3h147s0peevvkbid0" save: dataDirty=1 metaDirty=1 forcePersist=0
+[cookie] already deleted setcookie: "academy_wiki_session", "", "1741612600", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiUserID", "", "1741612600", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiToken", "", "1741612600", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "forceHTTPS", "", "1741612600", "/", "", "", "1", ""
+[session] SessionBackend "k27vmue5p2eo33j3h147s0peevvkbid0" data dirty due to dirty(): MediaWiki\Session\SessionManager->getSessionForRequest/MediaWiki\Session\SessionManager->getInitialSession/MediaWiki\Session\Session->getToken/MediaWiki\Session\Session->set/MediaWiki\Session\SessionBackend->dirty
+[session] SessionBackend "k27vmue5p2eo33j3h147s0peevvkbid0" save: dataDirty=1 metaDirty=0 forcePersist=0
+[MessageCache] MessageCache using store SqlBagOStuff
+MediaWiki\Parser\ParserFactory: using default preprocessor
+[SQLBagOStuff] MicroStash using store SqlBagOStuff
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::open [0.14ms] db: SET group_concat_max_len = 262144, `sql_mode` = 'STRICT_ALL_TABLES,ONLY_FULL_GROUP_BY'
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reallyOpenConnection: opened new connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::serverIsReadOnly [0.33ms] db: SELECT @@GLOBAL.read_only AS Value
+[objectcache] fetchOrRegenerate(global:rdbms-server-readonly:db): miss, new value computed
+[rdbms] Wikimedia\Rdbms\Database::beginIfImplied (WikiPage::pageData) [0.112ms] db: BEGIN
+[rdbms] WikiPage::pageData [0.368ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_random,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 0 AND page_title = 'ëŒ€ë¬¸'  LIMIT 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::fetchRevisionRowFromConds [0.364ms] db: SELECT  rev_id,rev_page,rev_timestamp,rev_minor_edit,rev_deleted,rev_len,rev_parent_id,rev_sha1,actor_rev_user.actor_user AS `rev_user`,actor_rev_user.actor_name AS `rev_user_text`,rev_actor,comment_rev_comment.comment_text AS `rev_comment_text`,comment_rev_comment.comment_data AS `rev_comment_data`,comment_rev_comment.comment_id AS `rev_comment_cid`,page_namespace,page_title,page_id,page_latest,page_is_redirect,page_len,user_name  FROM `revision` JOIN `actor` `actor_rev_user` ON ((actor_rev_user.actor_id = rev_actor)) JOIN `comment` `comment_rev_comment` ON ((comment_rev_comment.comment_id = rev_comment_id)) JOIN `page` ON ((page_id = rev_page)) LEFT JOIN `user` ON ((actor_rev_user.actor_user != 0) AND (user_id = actor_rev_user.actor_user))   WHERE rev_id = 1  LIMIT 1  
+[objectcache] fetchOrRegenerate(global:revision-row-1.29:academy_wiki:1:1): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::loadSlotRecordsFromDb [0.22ms] db: SELECT  slot_revision_id,slot_content_id,slot_origin,slot_role_id,content_size,content_sha1,content_address,content_model  FROM `slots` JOIN `content` ON ((slot_content_id = content_id))   WHERE slot_revision_id = 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.219ms] db: SELECT  role_id AS `id`,role_name AS `name`  FROM `slot_roles`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:slot_roles:academy_wiki): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.125ms] db: SELECT  model_id AS `id`,model_name AS `name`  FROM `content_models`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:content_models:academy_wiki): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:page-content-model:1): miss, new value computed
+[ContentHandler] Registered handler for wikitext: MediaWiki\Content\WikitextContentHandler
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+MediaWiki\Output\OutputPage::checkLastModified: client sent If-Modified-Since: 2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::checkLastModified: effective Last-Modified: 2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::checkLastModified: NOT MODIFIED, page=2026-03-10T11:49:49Z, user=1970-01-01T00:00:01Z, epoch=2026-03-10T13:10:32Z
+MediaWiki\Output\OutputPage::sendCacheControl: private caching (config); Tue, 10 Mar 2026 13:10:32 GMT **
+ViewAction::show: done 304
+[rdbms] MediaWiki\MediaWikiEntryPoint::commitMainTransaction [0.172ms] db: COMMIT
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: primary transaction round committed
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: pre-send deferred updates completed
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: session changes committed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::getAnyOpenConnection: found 'round' connection to #0.
+[rdbms] Cannot use ChronologyProtector with EmptyBagOStuff
+[rdbms] Wikimedia\Rdbms\LBFactory::shutdown: finished ChronologyProtector shutdown
+[rdbms] LBFactory shutdown completed
+Output buffer flushed
+FastCGI request finished
+[rdbms] LBFactory shutdown completed
+Request ended normally
+[session] Saving all sessions on shutdown
+
+
+Start request GET /wiki/%EB%8C%80%EB%AC%B8
+IP: 192.168.65.1
+HTTP HEADERS:
+COOKIE: wordpress_logged_in_70490311fe7c84acda8886406a6d884b=charmclinic%7C1774271445%7CDztgna0VECOzBThUx6z7OMQyUH7kz47UYz0bjJrxFFa%7C482277b971f887acfaf1689f53454713ff897014cbf022a71f06c70661e12833; wp-settings-time-1=1773064889
+ACCEPT-LANGUAGE: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+ACCEPT-ENCODING: gzip, deflate, br, zstd
+REFERER: http://localhost:8080/wiki/%ED%8A%B9%EC%88%98:%EB%B2%84%EC%A0%84
+SEC-FETCH-DEST: document
+SEC-FETCH-USER: ?1
+SEC-FETCH-MODE: navigate
+SEC-FETCH-SITE: same-origin
+ACCEPT: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+USER-AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+UPGRADE-INSECURE-REQUESTS: 1
+SEC-CH-UA-PLATFORM: "macOS"
+SEC-CH-UA-MOBILE: ?0
+SEC-CH-UA: "Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"
+CACHE-CONTROL: no-cache
+PRAGMA: no-cache
+CONNECTION: keep-alive
+HOST: localhost:8080
+(end headers)
+[session] SessionManager using store SqlBagOStuff
+[localisation] LocalisationCache using store LCStoreStaticArray
+[localisation] LocalisationCache::loadCoreData: got localisation for ko from source
+[objectcache] MainWANObjectCache using store Wikimedia\ObjectCache\EmptyBagOStuff
+[session] SessionBackend "qmgjv0qib5638gocg66btavuhth4rtq0" is unsaved, marking dirty in constructor
+[session] SessionBackend "qmgjv0qib5638gocg66btavuhth4rtq0" save: dataDirty=1 metaDirty=1 forcePersist=0
+[cookie] already deleted setcookie: "academy_wiki_session", "", "1741612601", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiUserID", "", "1741612601", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "academy_wikiToken", "", "1741612601", "/", "", "", "1", ""
+[cookie] already deleted setcookie: "forceHTTPS", "", "1741612601", "/", "", "", "1", ""
+[session] SessionBackend "qmgjv0qib5638gocg66btavuhth4rtq0" data dirty due to dirty(): MediaWiki\Session\SessionManager->getSessionForRequest/MediaWiki\Session\SessionManager->getInitialSession/MediaWiki\Session\Session->getToken/MediaWiki\Session\Session->set/MediaWiki\Session\SessionBackend->dirty
+[session] SessionBackend "qmgjv0qib5638gocg66btavuhth4rtq0" save: dataDirty=1 metaDirty=0 forcePersist=0
+[MessageCache] MessageCache using store SqlBagOStuff
+MediaWiki\Parser\ParserFactory: using default preprocessor
+[SQLBagOStuff] MicroStash using store SqlBagOStuff
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::open [0.095ms] db: SET group_concat_max_len = 262144, `sql_mode` = 'STRICT_ALL_TABLES,ONLY_FULL_GROUP_BY'
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reallyOpenConnection: opened new connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::serverIsReadOnly [0.114ms] db: SELECT @@GLOBAL.read_only AS Value
+[objectcache] fetchOrRegenerate(global:rdbms-server-readonly:db): miss, new value computed
+[rdbms] Wikimedia\Rdbms\Database::beginIfImplied (WikiPage::pageData) [0.061ms] db: BEGIN
+[rdbms] WikiPage::pageData [0.191ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_random,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 0 AND page_title = 'ëŒ€ë¬¸'  LIMIT 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::fetchRevisionRowFromConds [0.214ms] db: SELECT  rev_id,rev_page,rev_timestamp,rev_minor_edit,rev_deleted,rev_len,rev_parent_id,rev_sha1,actor_rev_user.actor_user AS `rev_user`,actor_rev_user.actor_name AS `rev_user_text`,rev_actor,comment_rev_comment.comment_text AS `rev_comment_text`,comment_rev_comment.comment_data AS `rev_comment_data`,comment_rev_comment.comment_id AS `rev_comment_cid`,page_namespace,page_title,page_id,page_latest,page_is_redirect,page_len,user_name  FROM `revision` JOIN `actor` `actor_rev_user` ON ((actor_rev_user.actor_id = rev_actor)) JOIN `comment` `comment_rev_comment` ON ((comment_rev_comment.comment_id = rev_comment_id)) JOIN `page` ON ((page_id = rev_page)) LEFT JOIN `user` ON ((actor_rev_user.actor_user != 0) AND (user_id = actor_rev_user.actor_user))   WHERE rev_id = 1  LIMIT 1  
+[objectcache] fetchOrRegenerate(global:revision-row-1.29:academy_wiki:1:1): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Revision\RevisionStore::loadSlotRecordsFromDb [0.308ms] db: SELECT  slot_revision_id,slot_content_id,slot_origin,slot_role_id,content_size,content_sha1,content_address,content_model  FROM `slots` JOIN `content` ON ((slot_content_id = content_id))   WHERE slot_revision_id = 1  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.112ms] db: SELECT  role_id AS `id`,role_name AS `name`  FROM `slot_roles`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:slot_roles:academy_wiki): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Storage\NameTableStore::loadTable [0.121ms] db: SELECT  model_id AS `id`,model_name AS `name`  FROM `content_models`     ORDER BY id 
+[objectcache] fetchOrRegenerate(global:NameTableSqlStore:content_models:academy_wiki): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:page-content-model:1): miss, new value computed
+[ContentHandler] Registered handler for wikitext: MediaWiki\Content\WikitextContentHandler
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+MediaWiki\Output\OutputPage::checkLastModified: client did not send If-Modified-Since header
+[silenced-error] [482a44a95972f95e1c2b696f] /wiki/%EB%8C%80%EB%AC%B8   PHP Warning: filemtime(): stat failed for /var/www/html/extensions/VisualEditor/editcheck/i18n/api/ko.json
+#0 [internal function]: MWExceptionHandler::handleError()
+#1 /var/www/html/includes/language/dependency/FileDependency.php(75): filemtime()
+#2 /var/www/html/includes/language/LocalisationCache.php(581): FileDependency->isExpired()
+#3 /var/www/html/includes/language/LocalisationCache.php(612): LocalisationCache->isExpired()
+#4 /var/www/html/includes/language/LocalisationCache.php(479): LocalisationCache->initLanguage()
+#5 /var/www/html/includes/language/LocalisationCache.php(381): LocalisationCache->loadItem()
+#6 /var/www/html/includes/language/Language.php(567): LocalisationCache->getItem()
+#7 /var/www/html/includes/title/MediaWikiTitleCodec.php(120): MediaWiki\Language\Language->needsGenderDistinction()
+#8 /var/www/html/includes/title/Title.php(1163): MediaWiki\Title\MediaWikiTitleCodec->getNamespaceName()
+#9 /var/www/html/includes/page/Article.php(494): MediaWiki\Title\Title->getNsText()
+#10 /var/www/html/includes/actions/ViewAction.php(78): Article->view()
+#11 /var/www/html/includes/actions/ActionEntryPoint.php(733): ViewAction->show()
+#12 /var/www/html/includes/actions/ActionEntryPoint.php(510): MediaWiki\Actions\ActionEntryPoint->performAction()
+#13 /var/www/html/includes/actions/ActionEntryPoint.php(146): MediaWiki\Actions\ActionEntryPoint->performRequest()
+#14 /var/www/html/includes/MediaWikiEntryPoint.php(200): MediaWiki\Actions\ActionEntryPoint->execute()
+#15 /var/www/html/index.php(58): MediaWiki\MediaWikiEntryPoint->run()
+#16 {main}
+[rdbms] Wikimedia\Rdbms\DatabaseMySQL::open [0.069ms] db: SET group_concat_max_len = 262144, `sql_mode` = 'STRICT_ALL_TABLES,ONLY_FULL_GROUP_BY'
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reallyOpenConnection: opened new connection for 0/academy_wiki
+[objectcache] getWithSetCallback(global:rdbms-server-readonly:db): process cache hit
+[rdbms] SqlBagOStuff::fetchBlobs [0.129ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:messages:ko' AND (exptime >= '20260310131641')  
+[SQLBagOStuff] SqlBagOStuff debug: SqlBagOStuff::fetchBlobs: retrieved academy_wiki:messages:ko; expiry time is 99991231235959
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::fetchBlobs [0.093ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:messages:ko:status' AND (exptime >= '20260310131641')  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::doLock [0.083ms] db: SELECT IF(GET_LOCK('academy_wiki:messages:ko',0),UNIX_TIMESTAMP(SYSDATE(6)),NULL) AS acquired
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MessageCache::loadFromDB(ko)-big [0.12ms] db: SELECT  page_title,page_latest  FROM `page`    WHERE page_is_redirect = 0 AND page_namespace = 8 AND (page_title NOT LIKE '%/%' ESCAPE '`') AND (page_len > 10000)  
+[rdbms] MessageCache::loadFromDB(ko)-small [0.146ms] db: SELECT  /*! STRAIGHT_JOIN */ rev_id,rev_page,rev_actor,actor_rev_user.actor_user AS `rev_user`,actor_rev_user.actor_name AS `rev_user_text`,rev_timestamp,rev_minor_edit,rev_deleted,rev_len,rev_parent_id,rev_sha1,comment_rev_comment.comment_text AS `rev_comment_text`,comment_rev_comment.comment_data AS `rev_comment_data`,comment_rev_comment.comment_id AS `rev_comment_cid`,page_namespace,page_title,page_id,page_latest,page_is_redirect,page_len  FROM `page` JOIN `revision` ON ((page_id = rev_page)) JOIN `actor` `actor_rev_user` ON ((actor_rev_user.actor_id = rev_actor)) JOIN `comment` `comment_rev_comment` ON ((comment_rev_comment.comment_id = rev_comment_id))   WHERE page_is_redirect = 0 AND page_namespace = 8 AND (page_title NOT LIKE '%/%' ESCAPE '`') AND (page_len <= 10000) AND (page_latest = rev_id)  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::modifyTableSpecificBlobsForSet [0.205ms] db: REPLACE INTO `objectcache` (keyname,value,exptime) VALUES ('academy_wiki:messages:ko','Œ±\nÃ0ÿE_ ÉŠ\\ž§diK¥]cAçŒ¡ÿÞd»ƒã*ö\rô—u¾ß¨|¡eƒ¦ë:ÑIAáÍ\"ëPó\'ú%*·àÆCï–ùì4¾óò>EŽ²:\'Iâ&T~','99991231235959')
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::doUnlock [0.069ms] db: SELECT RELEASE_LOCK('academy_wiki:messages:ko') AS released
+[MessageCache] MessageCache::loadUnguarded: Loading ko... local cache is empty, global cache is expired/volatile, loading from DB
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::fetchBlobs [0.091ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:messages:en' AND (exptime >= '20260310131641')  
+[SQLBagOStuff] SqlBagOStuff debug: SqlBagOStuff::fetchBlobs: retrieved academy_wiki:messages:en; expiry time is 99991231235959
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::fetchBlobs [0.095ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:messages:en:status' AND (exptime >= '20260310131641')  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::doLock [0.078ms] db: SELECT IF(GET_LOCK('academy_wiki:messages:en',0),UNIX_TIMESTAMP(SYSDATE(6)),NULL) AS acquired
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MessageCache::loadFromDB(en)-big [0.116ms] db: SELECT  page_title,page_latest  FROM `page`    WHERE page_is_redirect = 0 AND page_namespace = 8 AND (page_title LIKE '%/en' ESCAPE '`') AND (page_len > 10000)  
+[rdbms] MessageCache::loadFromDB(en)-small [0.136ms] db: SELECT  /*! STRAIGHT_JOIN */ rev_id,rev_page,rev_actor,actor_rev_user.actor_user AS `rev_user`,actor_rev_user.actor_name AS `rev_user_text`,rev_timestamp,rev_minor_edit,rev_deleted,rev_len,rev_parent_id,rev_sha1,comment_rev_comment.comment_text AS `rev_comment_text`,comment_rev_comment.comment_data AS `rev_comment_data`,comment_rev_comment.comment_id AS `rev_comment_cid`,page_namespace,page_title,page_id,page_latest,page_is_redirect,page_len  FROM `page` JOIN `revision` ON ((page_id = rev_page)) JOIN `actor` `actor_rev_user` ON ((actor_rev_user.actor_id = rev_actor)) JOIN `comment` `comment_rev_comment` ON ((comment_rev_comment.comment_id = rev_comment_id))   WHERE page_is_redirect = 0 AND page_namespace = 8 AND (page_title LIKE '%/en' ESCAPE '`') AND (page_len <= 10000) AND (page_latest = rev_id)  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::modifyTableSpecificBlobsForSet [0.182ms] db: REPLACE INTO `objectcache` (keyname,value,exptime) VALUES ('academy_wiki:messages:en','Œ±\nÃ0ÿE_ ÉŠ\\ž§diK¥]cAçŒ¡ÿÞd»ƒã*ö\rô—u¾ß¨|¡eƒ¦ë:ÑIAáÍ\"ëPó\'ú%*·àÆCï–ùì4¾óò>EŽ²:\'Iâ&T~','99991231235959')
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::doUnlock [0.056ms] db: SELECT RELEASE_LOCK('academy_wiki:messages:en') AS released
+[MessageCache] MessageCache::loadUnguarded: Loading en... local cache is empty, global cache is expired/volatile, loading from DB
+[SQLBagOStuff] MainObjectStash using store SqlBagOStuff
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[ParserCache] Creating ParserCache instance for pcache
+Unstubbing $wgLang on call of $wgLang::getDatePreferenceMigrationMap from MediaWiki\Parser\ParserOptions::initDateFormat
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::fetchBlobs [0.119ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:pcache:idoptions:1' AND (exptime >= '20260310131641')  
+[SQLBagOStuff] SqlBagOStuff debug: SqlBagOStuff::fetchBlobs: retrieved academy_wiki:pcache:idoptions:1; expiry time is 20260311131053
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[ParserCache] Parser cache options found
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] SqlBagOStuff::fetchBlobs [0.085ms] db: SELECT  keyname,value,exptime  FROM `objectcache`    WHERE keyname = 'academy_wiki:pcache:idhash:1-0!canonical' AND (exptime >= '20260310131641')  
+[SQLBagOStuff] SqlBagOStuff debug: SqlBagOStuff::fetchBlobs: retrieved academy_wiki:pcache:idhash:1-0!canonical; expiry time is 20260311131053
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[ParserCache] ParserOutput cache found
+[objectcache] getWithSetCallback(academy_wiki:page-content-model:1): process cache hit
+[localisation] LocalisationCache::loadCoreData: got localisation for en from source
+[objectcache] getWithSetCallback(global:rdbms-server-readonly:db): process cache hit
+[objectcache] getWithSetCallback(global:rdbms-server-readonly:db): process cache hit
+[rdbms] MediaWiki\MediaWikiEntryPoint::commitMainTransaction [0.101ms] db: COMMIT
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: primary transaction round committed
+[DeferredUpdates] DeferredUpdates::run: started MediaWiki\Deferred\MWCallableUpdate_WikiPage->doViewUpdates #910
+[DeferredUpdates] DeferredUpdates::run: ended MediaWiki\Deferred\MWCallableUpdate_WikiPage->doViewUpdates #910, processing time: 7.5101852416992E-5
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: pre-send deferred updates completed
+MediaWiki\MediaWikiEntryPoint::commitMainTransaction: session changes committed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::getAnyOpenConnection: found 'round' connection to #0.
+[rdbms] Cannot use ChronologyProtector with EmptyBagOStuff
+[rdbms] Wikimedia\Rdbms\LBFactory::shutdown: finished ChronologyProtector shutdown
+[rdbms] LBFactory shutdown completed
+MediaWiki\Output\OutputPage::haveCacheVaryCookies: no cache-varying cookies found
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\Database::beginIfImplied (MediaWiki\Cache\LinkBatch::doQuery (for Skin::preloadExistence)) [0.049ms] db: BEGIN
+[rdbms] MediaWiki\Cache\LinkBatch::doQuery (for Skin::preloadExistence) [0.111ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_latest,page_touched,page_len,page_content_model  FROM `page`    WHERE ((page_namespace = 1 AND page_title = 'ëŒ€ë¬¸'))  
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.124ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-info'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:e9a5ae1c8c14bbc49a89895e7bf7a1e87f3b4a45): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-info): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.097ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-info/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:1711c98fbe1de00fb239b19929ba9ecac5a783a9): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-info/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.11ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-info'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:1c1cc4e608f675b94b51380fbe902d9fdd571be8): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-info): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.082ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-info/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:7c884738a1447c613365d30262adcf80613e474e): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-info/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.083ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:7a4fa4f552247124e5865f44c2e43a02086610b0): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.075ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:e7e87efb06ddf8ade150ba6f42dcca11adcc281e): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.074ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-privacy'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:734c4078759c2292be9e9795c7a74ef87d074779): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-privacy): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.078ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-privacy/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:23552a3ca236e7629145d4f57940119a49c7ac76): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-privacy/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.084ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-privacy'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:3864a0b0b2a1fc783bea1bd0e914723d5aff38d4): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-privacy): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.069ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-privacy/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:0922464e28792821d9c259ca5972d46aed04e8d8): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-privacy/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.066ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-about'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:5eb3e91a5322a3d53da9855ca4156afc735f1427): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-about): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.065ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-about/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:bdaf5c5045563865b2f167859ab3c7e7d69f6745): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-about/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.072ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-about'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:9bcd402c7633c2cfe82486d8d4d8d6e8ed30731d): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-about): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.073ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-about/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:b2df5c39f26060f7a30f4e628d4c44ff5aa92d74): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-about/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.062ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-disclaimers'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:51b1aadd5a7b5330bc5634704893b47aa8c62780): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-disclaimers): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.069ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-places-disclaimers/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:799cb9df1828705ab6c247ea3b46ff273b7efcdf): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-places-disclaimers/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.071ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-disclaimers'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:ccad5b2df7a19fe5198c6859b9f78206905cbe11): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-disclaimers): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.066ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Accesskey-footer-places-disclaimers/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:db9e2723e7e7922c26d7466c3a432b3d5a87d64a): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Accesskey-footer-places-disclaimers/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.062ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-places'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:bbc89cc33a3921f2442aea81be6c21aaab524797): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-places): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.071ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-places/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:2e17a206bb7330ffdf12c654b339a7fee71b575e): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-places/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.081ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-icons'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:a22833dd52ee6cc8a01cb69d745018b36897d9ac): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-icons): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.088ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-footer-icons/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:bc41d488f60f07cade00e2e965f37fa831ad3ebb): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-footer-icons/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.074ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-icons'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:8cfd80862e4b8e189c23a54d71d2ad28022f3dac): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-icons): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.077ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Footer-icons/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:2f97380969e0e95587df2339e08c67a7ee89c408): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Footer-icons/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.061ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'View-view'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:bed9db6016ee14f1ae7f119f7924d1dd4c35531f): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:View-view): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.078ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'View-view/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:76756e3a55de52130a013d18e5d841968bf2bea3): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:View-view/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.067ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Vector-action-viewsource'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:0f728b29afe93d8b9ca4d39e06100265375bc05d): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Vector-action-viewsource): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.063ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Vector-action-viewsource/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:dd1164fd05c422e63cc07c6139bced4e2a74b0f5): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Vector-action-viewsource/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.067ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'User-interface-preferences'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:cc55e312a5aa3b8484b6bc564e3edba47c592500): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:User-interface-preferences): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.077ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'User-interface-preferences/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:adc85083e250d07ac258145247958f05fc5f98c4): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:User-interface-preferences/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.067ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-p-notifications'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:5e89b9c18080b9e1a98fafc0da774d0eec80a023): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-p-notifications): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.063ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-p-notifications/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:73efbe170fc384b4040efc0fc9d960a8ff65f4fb): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-p-notifications/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.063ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Notifications'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:753a22b2eb617204efee4644795034b8ace1ee14): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Notifications): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.06ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Notifications/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:1843f382d04ef6a3619173956c3cc63851b8b8c2): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Notifications/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.079ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-p-associated-pages'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:ef738cc53166fcf45692d0ade99df069e848dfb2): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-p-associated-pages): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.065ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Tooltip-p-associated-pages/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:87e8b8a2c721123e51b2798517f2a79c09e4240c): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Tooltip-p-associated-pages/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.058ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Associated-pages'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:cb7b37d2da1ced2fadc11aa3317c1a8efcf39648): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Associated-pages): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.071ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Associated-pages/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:aef90612e49a7c0b8252e72958a5573f375cf6f4): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Associated-pages/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.068ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Namespacenotice-0'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:b01460d8c89cf849d2b7522b3412fd750ddf368b): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Namespacenotice-0): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.06ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Namespacenotice-0/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:c4e686ae0519865082e1925d32fd092f75ab5495): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Namespacenotice-0/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.07ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Variantname-ko'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:5296dd43871c0a8bb4a627372b5b68378839e805): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Variantname-ko): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Page\PageStore::getPageByNameViaLinkCache [0.071ms] db: SELECT  page_id,page_namespace,page_title,page_is_redirect,page_is_new,page_touched,page_links_updated,page_latest,page_len,page_content_model  FROM `page`    WHERE page_namespace = 8 AND page_title = 'Variantname-ko/en'  LIMIT 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page:8:3f041bde7c72d3bb700c103917e5122266449028): miss, new value computed
+[objectcache] fetchOrRegenerate(academy_wiki:messages-big:f6c4f725a607bfe8fa0cf0c05ee4f470:Variantname-ko/en): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\ResourceLoader\WikiModule::preloadTitleInfo [0.144ms] db: SELECT  page_namespace,page_title,page_touched,page_len,page_latest  FROM `page`    WHERE ((page_namespace = 8 AND page_title IN ('Common.css','Noscript.css','Print.css','Vector.css') ))  
+[objectcache] fetchOrRegenerate(global:resourceloader-titleinfo:academy_wiki:e13a4c6012b98731f23f3a3a185dc3aa663155e7): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[objectcache] fetchOrRegenerate(global:resourceloader-titleinfo:academy_wiki:da39a3ee5e6b4b0d3255bfef95601890afd80709): miss, new value computed
+[rdbms] Wikimedia\Rdbms\LoadBalancer::reuseOrOpenConnectionForNewRef: reusing connection for 0/academy_wiki
+[rdbms] MediaWiki\Permissions\RestrictionStore::loadRestrictions [0.164ms] db: SELECT  pr_type,pr_expiry,pr_level,pr_cascade  FROM `page_restrictions`    WHERE pr_page = 1  
+[objectcache] fetchOrRegenerate(academy_wiki:page-restrictions:v1:1:1): miss, new value computed
+MediaWiki\Output\OutputPage::sendCacheControl: private caching (config); Tue, 10 Mar 2026 13:10:32 GMT **
+[silenced-error] [482a44a95972f95e1c2b696f] /wiki/%EB%8C%80%EB%AC%B8   PHP Notice: ob_end_flush(): Failed to send buffer of zlib output compression (1)
+#0 [internal function]: MWExceptionHandler::handleError()
+#1 /var/www/html/includes/MediaWikiEntryPoint.php(1077): ob_end_flush()
+#2 /var/www/html/includes/MediaWikiEntryPoint.php(1221): MediaWiki\MediaWikiEntryPoint->flushOutputBuffer()
+#3 /var/www/html/includes/MediaWikiEntryPoint.php(481): MediaWiki\MediaWikiEntryPoint->fastCgiFinishRequest()
+#4 /var/www/html/includes/MediaWikiEntryPoint.php(454): MediaWiki\MediaWikiEntryPoint->doPostOutputShutdown()
+#5 /var/www/html/includes/MediaWikiEntryPoint.php(209): MediaWiki\MediaWikiEntryPoint->postOutputShutdown()
+#6 /var/www/html/index.php(58): MediaWiki\MediaWikiEntryPoint->run()
+#7 {main}
+[silenced-error] [482a44a95972f95e1c2b696f] /wiki/%EB%8C%80%EB%AC%B8   PHP Notice: ob_end_flush(): Failed to send buffer of zlib output compression (1)
+#0 [internal function]: MWExceptionHandler::handleError()
+#1 /var/www/html/includes/MediaWikiEntryPoint.php(1077): ob_end_flush()
+#2 /var/www/html/includes/MediaWikiEntryPoint.php(1221): MediaWiki\MediaWikiEntryPoint->flushOutputBuffer()
+#3 /var/www/html/includes/MediaWikiEntryPoint.php(481): MediaWiki\MediaWikiEntryPoint->fastCgiFinishRequest()
+#4 /var/www/html/includes/MediaWikiEntryPoint.php(454): MediaWiki\MediaWikiEntryPoint->doPostOutputShutdown()
+#5 /var/www/html/includes/MediaWikiEntryPoint.php(209): MediaWiki\MediaWikiEntryPoint->postOutputShutdown()
+#6 /var/www/html/index.php(58): MediaWiki\MediaWikiEntryPoint->run()
+#7 {main}
+Output buffer flushed
+[rdbms] MediaWiki\MediaWikiEntryPoint::restInPeace [0.108ms] db: COMMIT
+[rdbms] LBFactory shutdown completed
+Request ended normally
+[session] Saving all sessions on shutdown
+[resourceloader] Failed to find echo-badge-count (ko)
