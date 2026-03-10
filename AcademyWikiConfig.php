@@ -180,99 +180,271 @@ html.skin-theme-clientpref-night body {
 
 /* === Namuwiki / Obsidian Inspired Custom Theme === */
 
-/* Typography */
+/* Typography & Base Variables */
 body {
     font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif !important;
+    word-break: keep-all;
+    font-size: 15px;
+    letter-spacing: -0.2px;
 }
 
 /* Light Mode Variables - Namuwiki Style */
 :root, html.skin-theme-clientpref-day {
-    --background-color-base: #ffffff;
-    --background-color-page: #f5f6f7;
-    --color-base: #1f2023;
-    --color-link: #0275d8;
-    --border-color-base: #cccccc;
+    --bg-base: #ffffff;
+    --bg-page: #f5f6f7;
+    --text-main: #1f2023;
+    --text-muted: #666666;
+    --link-color: #0275d8;
+    --link-hover: #014c8c;
+    --border-color: #e5e5e5;
     
-    --namu-header-bg: #00A495;
-    --namu-header-color: #ffffff;
-    --namu-header-border: #008275;
+    --header-bg: #00A495; /* Namuwiki Green */
+    --header-text: #ffffff;
+    
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    
+    --toc-bg: #f8f9fa;
+    --toc-border: #e2e2e2;
+    --heading-border: #cccccc;
+    
+    --table-header-bg: #f0f0f0;
+    --table-border: #dee2e6;
 }
 
 /* Dark Mode Variables - Namuwiki/Obsidian Style */
 html.skin-theme-clientpref-night {
-    --background-color-base: #1c1d1f;
-    --background-color-page: #101010;
-    --color-base: #e0e0e0;
-    --color-link: #A882FF; /* Obsidian Purple for dark mode links */
-    --border-color-base: #333333;
+    --bg-base: #1c1d1f;
+    --bg-page: #151515;
+    --text-main: #e0e0e0;
+    --text-muted: #999999;
+    --link-color: #A882FF; /* Obsidian Purple */
+    --link-hover: #c4a9ff;
+    --border-color: #383838;
     
-    --namu-header-bg: #1c1d1f;
-    --namu-header-color: #ffffff;
-    --namu-header-border: #2c2c2c;
+    --header-bg: #1c1d1f; /* Dark header */
+    --header-text: #ffffff;
+    
+    --card-bg: #1c1d1f;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    
+    --toc-bg: #222222;
+    --toc-border: #444444;
+    --heading-border: #444444;
+    
+    --table-header-bg: #2a2a2a;
+    --table-border: #444444;
 }
 
-/* Page Background */
-body, html {
-    background-color: var(--background-color-page) !important;
+/* Global Background */
+body, html, .mw-page-container {
+    background-color: var(--bg-page) !important;
+    color: var(--text-main) !important;
 }
 
-/* Header Styling (Namuwiki top bar) */
+/* --- 1. Top Navigation Bar (Namuwiki Header) --- */
 .vector-header-container {
-    background-color: var(--namu-header-bg) !important;
-    border-bottom: 1px solid var(--namu-header-border) !important;
+    background-color: var(--header-bg) !important;
+    border-bottom: none !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.vector-header-container, 
 .vector-header-container * {
-    color: var(--namu-header-color) !important;
+    color: var(--header-text) !important;
 }
-
-/* Search Box in Header */
+/* Search Box styling */
 .vector-search-box-input {
-    background-color: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.3) !important;
-    color: var(--namu-header-color) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--header-text) !important;
+    border-radius: 4px !important;
+    padding-left: 10px !important;
 }
 .vector-search-box-input::placeholder {
-    color: rgba(255,255,255,0.7) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+.vector-search-box-input:focus {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+/* User Links (Login/Create Account buttons) */
+.vector-user-menu-login, .vector-user-menu-create-account {
+    border-radius: 4px !important;
+    padding: 2px 10px !important;
+    background: rgba(255,255,255,0.1) !important;
+}
+.vector-menu-tabs .mw-list-item.selected a, .vector-menu-tabs .mw-list-item.selected a:visited {
+    color: var(--header-text) !important;
+    border-bottom: 3px solid #fff !important;
 }
 
-/* Content Container (Card styling) */
-.mw-page-container {
-    background-color: var(--background-color-page) !important;
-}
+/* --- 2. Content Container (Card Layout) --- */
 .mw-content-container {
-    background-color: var(--background-color-base) !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color-base);
-    border-radius: 10px;
-    padding: 2.5em;
-    margin-top: 15px;
-    margin-bottom: 40px;
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow) !important;
+    border-radius: 8px;
+    padding: 30px !important;
+    margin-top: 20px !important;
+    margin-bottom: 50px !important;
+    max-width: 1000px !important; /* Force a cleaner width like Namuwiki */
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
-/* Link overrides */
+/* --- 3. Sidebar (Left / Right panels) --- */
+.vector-column-start, .vector-column-end {
+    background: transparent !important;
+}
+/* Hide default annoying borders */
+.mw-page-container-inner {
+    grid-template-columns: minmax(0, 1fr) !important; /* Hide left sidebar by default on some pages if needed, but Vector 2022 toggles it anyway */
+}
+
+/* --- 4. Typography & Links --- */
 a {
-    color: var(--color-link);
+    color: var(--link-color) !important;
+    text-decoration: none !important;
+    transition: color 0.1s;
+}
+a:hover {
+    color: var(--link-hover) !important;
+    text-decoration: underline !important;
+}
+/* External links remove the weird arrow icon */
+.mw-parser-output a.external {
+    background-image: none !important;
+    padding-right: 0 !important;
+}
+/* Red links (Not yet created pages) */
+a.new, #p-personal a.new {
+    color: #cc0000 !important;
+}
+html.skin-theme-clientpref-night a.new {
+    color: #ff6b6b !important; /* Brighter red for dark mode */
 }
 
-/* Headings (Namuwiki style) */
-.mw-parser-output h1,
-.mw-parser-output h2,
-.mw-parser-output h3,
-.mw-parser-output h4 {
-    border-bottom: 1px solid var(--border-color-base) !important;
-    padding-bottom: 0.3em;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    font-weight: 700;
+/* --- 5. Headings (Namuwiki Style) --- */
+.mw-parser-output h1, .mw-parser-output h2, .mw-parser-output h3, .mw-parser-output h4, .mw-parser-output h5, .mw-parser-output h6 {
+    color: var(--text-main) !important;
+    border-bottom: 1px solid var(--heading-border) !important;
+    padding-bottom: 8px !important;
+    margin-top: 1.8em !important;
+    margin-bottom: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+}
+.skin-vector-2022 .mw-page-title-main {
+    font-size: 2em !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid var(--heading-border) !important;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+/* Add section numbers simulation (optional, Vector already has them if enabled in prefs, but let's make them look like Namuwiki) */
+.mw-headline-number {
+    color: var(--header-bg) !important;
+    margin-right: 6px;
 }
 
-/* Table of Contents */
-.toc, .vector-toc {
-    background-color: var(--background-color-base) !important;
-    border: 1px solid var(--border-color-base) !important;
-    border-radius: 6px;
-    padding: 15px;
+/* --- 6. Table of Contents (TOC) --- */
+.toc, .mw-ext-toc, .vector-toc {
+    background-color: var(--toc-bg) !important;
+    border: 1px solid var(--toc-border) !important;
+    border-radius: 6px !important;
+    padding: 20px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    display: inline-block !important; /* Make it a neat box */
+    min-width: 300px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.vector-toc-title {
+    font-weight: bold !important;
+    font-size: 1.1em !important;
+    color: var(--text-main) !important;
+    border-bottom: 1px solid var(--heading-border) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+}
+.vector-toc .vector-toc-list-item a {
+    color: var(--text-main) !important;
+    font-size: 0.95em !important;
+    padding: 4px 0 !important;
+}
+.vector-toc .vector-toc-list-item a:hover {
+    color: var(--link-color) !important;
+    text-decoration: underline !important;
+}
+.vector-toc-level-1 { margin-left: 0 !important; }
+.vector-toc-level-2 { margin-left: 15px !important; }
+
+/* --- 7. Tables & Infoboxes (Namuwiki Info table clone) --- */
+.mw-parser-output table.wikitable, .mw-parser-output table.infobox {
+    background-color: var(--card-bg) !important;
+    color: var(--text-main) !important;
+    border: 2px solid var(--table-border) !important;
+    border-collapse: collapse !important;
+    border-radius: 4px !important;
+    overflow: hidden !important; /* For rounded corners on tables */
+}
+.mw-parser-output table.wikitable > tr > th, .mw-parser-output table.wikitable > tbody > tr > th,
+.mw-parser-output table.infobox th {
+    background-color: var(--table-header-bg) !important;
+    border: 1px solid var(--table-border) !important;
+    font-weight: bold !important;
+    color: var(--text-main) !important;
+    padding: 10px !important;
+    text-align: center !important;
+}
+.mw-parser-output table.wikitable > tr > td, .mw-parser-output table.wikitable > tbody > tr > td,
+.mw-parser-output table.infobox td {
+    border: 1px solid var(--table-border) !important;
+    padding: 10px !important;
+}
+/* Infobox specific tweaks (the right-side floating table like actor profiles) */
+.mw-parser-output table.infobox {
+    float: right !important;
+    clear: right !important;
+    margin: 0 0 1em 1.5em !important;
+    width: 300px !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* --- 8. Blockquotes & Info blocks --- */
+.mw-parser-output blockquote {
+    background-color: rgba(0, 164, 149, 0.05); /* Very light Namu green */
+    border-left: 4px solid var(--header-bg) !important;
+    margin: 1.5em 0 !important;
+    padding: 15px 20px !important;
+    border-radius: 0 4px 4px 0 !important;
+}
+html.skin-theme-clientpref-night .mw-parser-output blockquote {
+    background-color: rgba(255, 255, 255, 0.05); /* Mild white for dark mode */
+}
+
+/* --- 9. Categories at the bottom --- */
+.catlinks {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    padding: 15px !important;
+    margin-top: 30px !important;
+}
+
+/* Miscellaneous Vector Fixes */
+.vector-page-toolbar { margin-top: 10px !important; }
+.vector-body { font-size: 1em !important; line-height: 1.6 !important; }
+.mw-editsection {
+    font-size: 0.6em !important;
+    margin-left: 10px !important;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+.mw-editsection:hover {
+    opacity: 1;
+}
+.mw-editsection a {
+    color: var(--text-muted) !important;
 }
 CSS;
 
