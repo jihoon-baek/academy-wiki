@@ -198,8 +198,8 @@ body {
     --link-hover: #014c8c;
     --border-color: #e5e5e5;
     
-    --header-bg: #00A495; /* Namuwiki Green */
-    --header-text: #ffffff;
+    --header-bg: #ffffff; /* White Header */
+    --header-text: #1f2023; /* Dark text */
     
     --card-bg: #ffffff;
     --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -223,7 +223,7 @@ html.skin-theme-clientpref-night {
     --border-color: #383838;
     
     --header-bg: #1c1d1f; /* Dark header */
-    --header-text: #ffffff;
+    --header-text: #e0e0e0;
     
     --card-bg: #1c1d1f;
     --card-shadow: 0 4px 12px rgba(0,0,0,0.5);
@@ -245,22 +245,22 @@ body, html, .mw-page-container {
 /* --- 1. Top Navigation Bar (Namuwiki Header) --- */
 .vector-header-container {
     background-color: var(--header-bg) !important;
-    border-bottom: none !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 .vector-header-container * {
     color: var(--header-text) !important;
 }
 /* Search Box styling */
 .vector-search-box-input {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: var(--header-text) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--heading-border) !important;
+    color: var(--text-main) !important;
     border-radius: 4px !important;
     padding-left: 10px !important;
 }
 .vector-search-box-input::placeholder {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: var(--text-muted) !important;
 }
 .vector-search-box-input:focus {
     background-color: var(--card-bg) !important;
@@ -270,11 +270,14 @@ body, html, .mw-page-container {
 .vector-user-menu-login, .vector-user-menu-create-account {
     border-radius: 4px !important;
     padding: 2px 10px !important;
+    background: rgba(0,0,0,0.05) !important;
+}
+html.skin-theme-clientpref-night .vector-user-menu-login, html.skin-theme-clientpref-night .vector-user-menu-create-account {
     background: rgba(255,255,255,0.1) !important;
 }
 .vector-menu-tabs .mw-list-item.selected a, .vector-menu-tabs .mw-list-item.selected a:visited {
-    color: var(--header-text) !important;
-    border-bottom: 3px solid #fff !important;
+    color: var(--text-main) !important;
+    border-bottom: 3px solid var(--text-main) !important;
 }
 
 /* --- 2. Content Container (Card Layout) --- */
